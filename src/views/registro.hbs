@@ -1,0 +1,40 @@
+<div class="col-md-6 offset-md-3">
+    <h1>Registro de usuarios</h1>
+    {{#if error}}
+        <p style='color: red'>Usuario y/o contraseña incorrecto(s)</p>
+    {{/if}}
+    <p>Proporciona tus datos de registro</p>
+    <!--
+    <div class="card-body">
+        {{#if contacts}}
+            <ul class='list-group'>
+            {{#each contacts}}
+                <li class='list-group-item d-flex justify-content-between align-items-center'>
+                    {{firstname}} 
+                    {{lastname}} /
+                    {{email}} /
+                    {{phone}}
+                    <a href='/delete-contact/{{@key}}' class='btn btn-danger'>Delete</a>
+                </li>
+            {{/each}}
+            </ul>
+        {{else}}
+            <p>No contacts yet</p>
+        {{/if}}
+    </div>
+    -->
+    <form action='/registro' method="POST">
+        <div class="form-group">
+            <input type='text' name='correo' placeholder='Ej. mauricio@udem.edu' class='form-control' required>
+        </div>
+        <div class="form-group">
+            <input type='password' name='password' placeholder='Ej. 505597' class='form-control' required>
+        </div>
+        <div class="form-group">
+            <input type='password' name='passwordValidate' placeholder='Ej. 505597' class='form-control' required>
+        </div>
+        <button class='btn btn-primary btn-block'>
+            Registrar
+        </button>
+    </form>
+</div>

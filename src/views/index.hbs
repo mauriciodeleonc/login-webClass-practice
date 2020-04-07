@@ -1,0 +1,50 @@
+<div class="col-md-6 offset-md-3">
+    <h1>Autenticación de usuarios</h1>
+    {{#if error}}
+        <p style='color: red'>Usuario y/o contraseña incorrecto(s)</p>
+    {{/if}}
+    <p>Zona con acceso restringido. Debe identificarse para entrar</p>
+    <!--
+    <div class="card-body">
+        {{#if contacts}}
+            <ul class='list-group'>
+            {{#each contacts}}
+                <li class='list-group-item d-flex justify-content-between align-items-center'>
+                    {{firstname}} 
+                    {{lastname}} /
+                    {{email}} /
+                    {{phone}}
+                    <a href='/delete-contact/{{@key}}' class='btn btn-danger'>Delete</a>
+                </li>
+            {{/each}}
+            </ul>
+        {{else}}
+            <p>No contacts yet</p>
+        {{/if}}
+    </div>
+    -->
+    <form action='/login' method="POST">
+        <div class="form-group">
+            <input type='text' name='correo' placeholder='Ej. mauricio@udem.edu' class='form-control' required>
+        </div>
+        <div class="form-group">
+            <input type='password' name='password' placeholder='Ej. 505597' class='form-control' required>
+        </div>
+        <button class='btn btn-primary btn-block'>
+            Ingresar
+        </button>
+    </form>
+    <br>
+    <form action='/registro' method='POST' id='link-registro'>
+        <div class="form-group">
+            <p>Si no tienes cuenta regístrate <a class='btn btn-outline-dark' onclick="document.getElementById('link-registro').submit(); return false;">aquí</a></p>
+        </div>
+    </form>
+    <hr>
+    <a class='btn btn-outline-primary btn-block' href='/auth/facebook'>
+        Continuar con facebook
+    </a>
+    <a class='btn btn-outline-danger btn-block' href='/auth/google'>
+        Continuar con Google
+    </a>
+</div>
